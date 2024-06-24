@@ -1,6 +1,19 @@
+<app-hijo 
+    (incrementarDesdeHijo)="incrementar()"
+    (decrementarDesdeHijo)="decrementar()"
+    (mensajeDesdeHijo)="recibirMensaje($event)"
+/>
+<h5>El mensaje recibido desde el hijo es: {{ mensajeRecibido }}</h5>
+
 <h1>Contador</h1>
 <p>{{ valorContador }}</p>
-<button (click)="incrementar()">Incrementar</button>
-<button (click)="decrementar()">Decrementar</button>
 
-<!-- <app-hijo/> -->
+<!-- El pipe date ya viene integrado no necesitamos tener el archivo, existen otros pipe ya definidos en la documentacion -->
+<h1 appEstiloHermanos> {{ nombre | miPipePersonalizado }} </h1>
+<h2>Fecha de hoy: {{ fecha | date: 'short'}}</h2>
+<h2>Cuanto cotiza el dolar: {{ dolar | currency: 'EUR'}}</h2>
+<h2>Numero PI: {{ pi | number: '1.2-2'}}</h2>
+<button type="button" (click)="saludar()">Saludar</button>
+<button type="button" (click)="preguntar()">Preguntar por hijo</button>
+
+<!-- <app-hijo [recibeHijo]="mensajePadre"/> -->
